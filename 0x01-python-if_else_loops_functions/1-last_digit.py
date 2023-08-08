@@ -6,7 +6,7 @@ if number < 0:
     print("-", end="")
 print(f"{number % 10} and is ", end="")
 
-if number % 10 < 6 and not 0:
+if number % 10 < 6 and number % 10 != 0:
     print("less than 6 and not 0")
 elif number % 10 > 5:
     print("greater than 5")
