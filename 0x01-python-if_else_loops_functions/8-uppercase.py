@@ -4,13 +4,11 @@
 islower = __import__('7-islower').islower
 def uppercase(str):
     """Function prints a string in uppercase."""
-    for c in str:
-        ch = c
-        if islower(c):
-            cc = ord(c) - 32
-            ch = chr(cc)
-
-        if c == str[-1]:
-            print("{}".format(ch))
-        else:
+    for i in range(len(str)):
+        ch = str[i]
+        if islower(str[i]):
+            ch = chr(ord(str[i]) - 32)
+        if i != len(str) - 1:
             print("{}".format(ch), end='')
+        else:
+            print("{}".format(ch))
