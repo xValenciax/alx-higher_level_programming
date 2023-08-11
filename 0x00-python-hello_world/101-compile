@@ -1,2 +1,9 @@
-#!/bin/bash
-python -m py_compile $PYFILE
+#!/usr/bin/python3
+
+import py_compile
+import os
+
+src = os.getenv('PYFILE')
+dest = src[:-2]
+print(f"Compiling {src} ...")
+py_compile.compile(src, "{}".format(dest + "pyc"))
