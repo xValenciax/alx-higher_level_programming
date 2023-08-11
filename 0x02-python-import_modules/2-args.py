@@ -1,17 +1,19 @@
 #!/usr/bin/python3
-import sys
 
-args = sys.argv.copy()[1:]
-len = len(args)
-args_str = "arguments:"
+if __name__ == "__main__":
+    import sys
 
-if len == 1:
-    args_str = "argument:"
+    args = sys.argv.copy()[1:]
+    len = len(args)
+    args_str = "arguments:"
 
-if len == 0:
-    args_str = "arguments."
+    if len == 1:
+        args_str = "argument:"
 
-print(f"{len} {args_str}")
+    if len == 0:
+        args_str = "arguments."
 
-for i, arg in enumerate(args):
-    print(f"{i + 1}: {arg}")
+    print(f"{len} {args_str}")
+
+    for i, arg in enumerate(args):
+        print(f"{i + 1}: {arg}")
