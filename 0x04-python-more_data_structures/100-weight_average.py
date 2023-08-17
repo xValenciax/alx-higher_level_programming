@@ -8,5 +8,4 @@ def weight_average(my_list=[]):
         bast += tup[0] * tup[1]
         maqam += tup[1]
 
-    res = bast / maqam
-    return res
+    return bast / maqam if my_list else 0
