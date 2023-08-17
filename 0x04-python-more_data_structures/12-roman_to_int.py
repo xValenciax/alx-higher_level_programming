@@ -2,7 +2,7 @@
 # AUTHORS Selim
 
 def roman_to_int(roman_string):
-    if roman_string == None or str(type('x')) != "<class 'str'>":
+    if roman_string == None or str(type(roman_string)) != "<class 'str'>":
         return 0
 
     rc = {
@@ -19,8 +19,8 @@ def roman_to_int(roman_string):
     number = 0
 
     for i, key in enumerate(roman_string):
-        if i + 1 < len(roman_string) and rc[roman_string[i]] < rc[roman_string[i + 1]]:
-            number += (rc[roman_string[i + 1]] - rc[roman_string[i]])
+        if i + 1 < len(roman_string) and rc[key] < rc[roman_string[i + 1]]:
+            number += (rc[roman_string[i + 1]] - rc[key])
             deuce = True
         elif deuce:
             deuce = False
