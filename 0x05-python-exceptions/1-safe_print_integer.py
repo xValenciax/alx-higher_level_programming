@@ -2,9 +2,8 @@
 
 def safe_print_integer(value):
     try:
-        trial = value + 1
-    except TypeError:
+        print('{:d}'.format(value))
+    except ValueError:
         return False
     else:
-        print('{:d}'.format(value))
         return True
