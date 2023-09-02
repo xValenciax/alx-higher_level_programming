@@ -1,0 +1,48 @@
+========================================================
+|   Testing Divide Matrix module using DocTest module  |
+========================================================
+
+-------------------------------------------
+matrix_divided function should be import first from add integer module
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+'''
+first_name: is a valid string
+last_name: is a valid string
+
+should return the correct statement
+'''
+
+    >>> say_my_name("Mahmoud", "Mohamed")
+    My name is Mahmoud Mohamed
+    >>> say_my_name("Ahmed")
+    My name is Ahmed
+
+'''
+first_name: is of non-valid type
+last_name: is a valid string
+
+should raise the appropriate exception
+'''
+
+    >>> say_my_name(None, "Mohamed")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+    >>> say_my_name(12, "Mohamed")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+'''
+first_name: is a valid string
+last_name: is of non-valid type
+
+should raise the appropriate exception
+'''
+
+    >>> say_my_name("Mohamed", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+    >>> say_my_name("Mohamed", 12)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
