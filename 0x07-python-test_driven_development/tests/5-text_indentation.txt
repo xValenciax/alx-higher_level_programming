@@ -1,0 +1,43 @@
+========================================================
+|   Testing Text Indentation module using DocTest module  |
+========================================================
+
+-------------------------------------------
+text_indentation function should be imported first from add integer module
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+'''
+text: is a valid string
+
+should return the correct indented statements
+'''
+
+    >>> text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Quonam modo?"
+    >>> text_indentation(text)
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    >>> text = "Non autem hoc: igitur ne illud quidem."
+    >>> text_indentation(text)
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    >>> text_indentation("")
+
+'''
+text: is of non-valid type
+
+should raise the appropriate exception
+'''
+
+    >>> text_indentation(-1)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    >>> text_indentation(['string?'])
+    Traceback (most recent call last):
+    TypeError: text must be a string
