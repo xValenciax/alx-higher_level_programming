@@ -1,0 +1,39 @@
+========================================================
+|   Testing Print Square module using DocTest module  |
+========================================================
+
+-------------------------------------------
+print_square function should be imported first from add integer module
+
+    >>> print_square = __import__('4-print_square').print_square
+
+'''
+size: is a valid integer
+
+should return the correct statement
+'''
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+    >>> print_square(1)
+    #
+    >>> print_square(0)
+
+'''
+size: is of non-valid type
+
+should raise the appropriate exception
+'''
+
+    >>> print_square('size')
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+    >>> print_square(-1)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+    >>> print_square(-1.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
