@@ -11,6 +11,9 @@ class Rectangle:
         self.height = height
 
     def __str__(self) -> str:
+        if self.width == 0 or self.height == 0:
+            return ""
+
         rect_list = []
 
         for i in range(self.height):
