@@ -20,9 +20,13 @@ def matrix_mul(m_a, m_b):
     elif len(m_b) == 0 or len(m_b[0]) == 0:
         raise ValueError("m_b can't be empty")
 
-    if not all([all([(isinstance(i, int) or isinstance(i, float)) for i in x]) for x in m_a]):
+    if not all([all([
+            (isinstance(i, int) or isinstance(i, float)) for i in x]
+    ) for x in m_a]):
         raise TypeError('m_a should contain only integers or floats')
-    elif not all([all([(isinstance(i, int) or isinstance(i, float)) for i in x]) for x in m_b]):
+    elif not all([all([
+            (isinstance(i, int) or isinstance(i, float)) for i in x]
+    ) for x in m_b]):
         raise TypeError('m_b should contain only integers or floats')
 
     if len(set([len(x) for x in m_a])) != 1:
