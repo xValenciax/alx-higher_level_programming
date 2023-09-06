@@ -1,0 +1,107 @@
+========================================================
+|   Testing Matrix Multiplication module using DocTest module  |
+========================================================
+
+-------------------------------------------
+lazy_matrix_mul function should be imported first from add integer module
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+
+'''
+m_a: is a valid square matrix
+m_b: is a valid square matrix
+
+should return the correct output
+'''
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]) #doctest: +
+    array([[ 7, 10],
+       [15, 22]])
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6], [6, 7, 8]], [[1, 2, 3], [4, 5, 6], [6, 7, 8]])
+    array([[ 27,  33,  39],
+       [ 60,  75,  90],
+       [ 82, 103, 124]])
+
+'''
+m_a: is a valid n_a x m_a matrix
+m_b: is a valid n_b x m_b matrix
+
+should only do the multiplication if m_a == n_b
+and the new matrix should be an n_a x m_b matrix
+
+else raises a ValueError m_a and m_b can't be multiplied
+'''
+
+    >>> lazy_matrix_mul([[1,2,3]], [[4], [5], [6]])
+    [[32]]
+    >>> lazy_matrix_mul([[4], [5], [6]], [[1, 2, 3]])
+    [[4, 8, 12], [5, 10, 15], [6, 12, 18]]
+    >>> lazy_matrix_mul([[1, 2, 3]], [[4, 5, 6]])
+    Traceback (most recent call last):
+    ValueError: m_a and m_b can't be multiplied
+
+'''
+either m_a or m_b is not a list
+
+should raise a TypeError m_a and/or m_b must be a list
+'''
+
+    >>> lazy_matrix_mul("list", [[4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+    >>> lazy_matrix_mul([[1, 2, 3]], True)
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+'''
+either m_a or m_b is not a matrix
+
+should raise a TypeError m_a and/or m_b must be a list of lists
+'''
+
+    >>> lazy_matrix_mul(["a", "b", "c"], [[4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+    >>> lazy_matrix_mul([[1, 2, 3]], [1, 2, 3, 4])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+'''
+either m_a or m_b is an empty matrix
+
+should raise a ValueError m_a and/or m_b can't be empty
+'''
+
+    >>> lazy_matrix_mul([], [[4, 5, 6]])
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+    >>> lazy_matrix_mul([[1, 2, 3]], [[]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+'''
+either m_a or m_b is doesn't contain number only
+
+should raise a TypeError m_a and/or m_b should contain only integers or floats
+'''
+
+    >>> lazy_matrix_mul([['hello', 2, 3.5]], [[4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+    >>> lazy_matrix_mul([[1, 2, 3]], [[None, 2.5, 3]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+'''
+either m_a or m_b is isn't a rectangular matrix
+
+should raise a TypeError each row of m_a/m_b must be of the same size
+'''
+
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5]], [[4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+    >>> lazy_matrix_mul([[1, 2, 3]], [[4, 5, 6], [7, 8, 9, 10]])
+    Traceback (most recent call last):
+    TypeError: each row of m_b must be of the same size
