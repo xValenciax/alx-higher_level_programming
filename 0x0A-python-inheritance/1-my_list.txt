@@ -1,0 +1,43 @@
+==========================================================================
+|    Testing print sorted method of MyList class using DocTest module    |
+==========================================================================
+
+-------------------------------------------
+import MyList class
+    >>> MyList = __import__('1-my_list').MyList
+
+an object of MyList should be created first
+    >>> my_list = MyList()
+
+'''
+append integers to list and then print it sorted
+'''
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+'''
+one of the elements is not an integer
+'''
+    >>> my_list.clear()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append("string")
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'str' and 'int'
+
+'''
+empty list
+'''
+    >>> my_list.clear()
+    >>> my_list.print_sorted()
+    []
+
