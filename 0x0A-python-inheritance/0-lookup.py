@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """module defines function lookup"""
 
 
