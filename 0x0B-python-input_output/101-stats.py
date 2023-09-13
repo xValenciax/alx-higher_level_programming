@@ -2,10 +2,10 @@
 """script that prints stat of formatted input through stdin"""
 
 
-def print_stats(status_codes={}, file_size=0):
+def print_stats(status_codes, file_size):
     """prints the collected stats in a certain format"""
-    keys = sorted(list(status_codes.keys()))
     print('File size: {}'.format(file_size))
+    keys = sorted(status_codes)
     for key in keys:
         print('{}: {}'.format(key, status_codes[key]))
 
@@ -42,6 +42,6 @@ if __name__ == '__main__':
 
         print_stats(status_codes, file_size)
 
-    except KeyboardInterrupt as e:
+    except KeyboardInterrupt:
         print_stats(status_codes, file_size)
         raise
