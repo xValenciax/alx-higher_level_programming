@@ -13,8 +13,7 @@ class Student:
     def to_json(self, attrs=None):
         """converts a class into dictionary representation of attributes
         that co-exist in the attrs param"""
-        if (isinstance(attrs, list)
-                and all([isinstance(x, str) for x in attrs])):
+        if attrs is not None:
             new_dict = {attr: self.__dict__[attr]
                         for attr in attrs if attr in list(self.__dict__.keys())}
             return new_dict
