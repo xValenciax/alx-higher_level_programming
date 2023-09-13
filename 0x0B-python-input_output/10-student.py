@@ -11,6 +11,8 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
+        """converts a class into dictionary representation of attributes
+        that co-exist in the attrs param"""
         if (isinstance(attrs, list)
                 and all([isinstance(x, str) for x in attrs])):
             new_dict = {attr: self.__dict__[attr]
