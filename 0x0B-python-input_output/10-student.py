@@ -15,7 +15,7 @@ class Student:
         """converts a class into dictionary representation of attributes
         that co-exist in the attrs param"""
         if attrs is not None:
-            new_dict = []
+            new_dict = {}
             for item in attrs:
                 try:
                     new_dict[item] = self.__dict__[item]
