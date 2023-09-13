@@ -4,7 +4,7 @@
 
 def collect_stats(lines=[], status_codes={}, file_size=0):
     """collects stat from stdin lines"""
-    available_stats = [200, 301, 400, 401, 403, 404, 405, 500]
+    available_stats = ['200', '301', '400', '401', '403', '404', '405', '500']
     for line in lines:
         lines_splitted = line.split(' ')
 
@@ -14,11 +14,11 @@ def collect_stats(lines=[], status_codes={}, file_size=0):
             pass
 
         try:
-            if (int(lines_splitted[-2]) in available_stats
-                    and status_codes.get(lines_splitted[-2])):
-                status_codes[lines_splitted[-2]] += 1
-            else:
-                status_codes[lines_splitted[-2]] = 1
+            if lines_splitted[-2] in available_stats:
+                if status_codes.get(lines_splitted[-2]):
+                    status_codes[lines_splitted[-2]] += 1
+                else:
+                    status_codes[lines_splitted[-2]] = 1
         except IndexError:
             pass
 
@@ -28,9 +28,9 @@ def collect_stats(lines=[], status_codes={}, file_size=0):
 def print_stats(status_codes={}, file_size=0):
     """prints the collected stats in a certain format"""
     keys = list(status_codes.keys())
-    sys.stdout.write(f'File size: {file_size}\n')
+    print('File size: {}'.format(file_size))
     for key in sorted(keys):
-        sys.stdout.write(f'{key}: {status_codes[key]}\n')
+        print('{}: {}'.format(key, status_codes[key]))
 
 
 if __name__ == '__main__':
