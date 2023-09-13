@@ -14,7 +14,8 @@ def collect_stats(lines=[], status_codes={}, file_size=0):
             pass
 
         try:
-            if int(lines_splitted[-2]) in available_stats and status_codes.get(lines_splitted[-2]):
+            if (int(lines_splitted[-2]) in available_stats
+                    and status_codes.get(lines_splitted[-2])):
                 status_codes[lines_splitted[-2]] += 1
             else:
                 status_codes[lines_splitted[-2]] = 1
@@ -34,12 +35,14 @@ def print_stats(status_codes={}, file_size=0):
 
 if __name__ == '__main__':
     import sys
+
+    file_size = 0
+    status_codes = {}
+    lines = []
+
     try:
-        file_size = 0
-        status_codes = {}
-        lines = []
-        while True:
-            lines.append(sys.stdin.readline())
+        for line in sys.stdin:
+            lines.append(line)
             if len(lines) == 10:
                 file_size = collect_stats(lines, status_codes, file_size)
                 print_stats(status_codes, file_size)
