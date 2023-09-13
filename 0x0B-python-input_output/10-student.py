@@ -17,10 +17,8 @@ class Student:
                 and all([isinstance(x, str) for x in attrs])):
             new_dict = {}
             for item in attrs:
-                try:
+                if item in list(self.__dict__.keys()):
                     new_dict[item] = self.__dict__[item]
-                except Exception:
-                    pass
             return new_dict
 
         return self.__dict__
