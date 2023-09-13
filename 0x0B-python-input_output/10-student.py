@@ -6,15 +6,15 @@ class Student:
     """represents a Student"""
 
     def __init__(self, first_name, last_name, age):
-        """initializes a new instance of the Student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
         """converts a class into dictionary representation of attributes
-        that co-exist in the attrs param"""
-        if attrs is not None:
+        that co-exist in the attrs parameter"""
+        if (isinstance(attrs, list)
+                and all([isinstance(x, str) for x in attrs])):
             new_dict = {}
             for item in attrs:
                 try:
