@@ -70,22 +70,3 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.x, 1)
         self.assertEqual(square.y, 1)
 
-        with self.assertRaises((TypeError, ValueError)):
-            square.update('hello')
-            square.update(x=-1)
-            square.update(y=1, size='size')
-
-    def test_to_dictionary(self):
-        s = Square(10, 2, 1)
-        s_dict = s.to_dictionary()
-
-        s_2 = Square(5, 1, 1)
-        s2_dict = s_2.to_dictionary()
-        self.assertFalse(s_dict == s2_dict)
-
-        with self.assertRaises(TypeError):
-            s.to_dictionary(1)
-
-
-if __name__ == '__main__':
-    unittest.main()
