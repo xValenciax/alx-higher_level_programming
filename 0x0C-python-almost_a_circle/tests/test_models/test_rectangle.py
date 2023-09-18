@@ -85,3 +85,67 @@ class TestRectangle(unittest.TestCase):
         self.output_buffer.truncate(0)
         self.output_buffer.seek(0)
 
+        self.basic_rect.display()
+        output = self.output_buffer.getvalue()
+
+        self.assertEqual(output, '\n\n  ##\n  ##\n')
+
+    def test_class_str(self):
+        print(self.basic_rect)
+        output = self.output_buffer.getvalue()
+
+        self.assertEqual(output, '[Rectangle] (3) 2/2 - 2/2\n')
+
+    def test_wrong_params(self):
+        with self.assertRaises(TypeError):
+            r_t = Rectangle(1)
+            r_t = Rectangle()
+            r_t = Rectangle(2, 2)
+            r_t.area('hello')
+            r_t.display(1)
+
+    def test_update(self):
+        self.basic_rect.update(10, 3, 4, 5, 1)
+        print(self.basic_rect)
+
+        output = self.output_buffer.getvalue()
+
+        self.assertEqual(output, '[Rectangle] (10) 5/1 - 3/4\n')
+
+        with self.assertRaises((TypeError, ValueError)):
+            self.basic_rect.update(10, 'hello', 4, 5, 1)
+            self.basic_rect.update(10, 3, 0, 5, -1)
+            self.basic_rect.update('hello')
+
+        self.basic_rect.update(10)
+        self.assertEqual(self.basic_rect.id, 10)
+
+    def test_update_2(self):
+        test_rect = Rectangle(10, 10, 10, 10)
+        test_rect.update(height=1)
+        self.assertEqual(test_rect.height, 1)
+
+    def test_to_dictionary(self):
+        rect = Rectangle(10, 2, 1, 9)
+        r_dict = rect.to_dictionary()
+
+        rect_2 = Rectangle(5, 1, 1, 9)
+        r2_dict = rect_2.to_dictionary()
+        self.assertFalse(r_dict == r2_dict)
+
+        with self.assertRaises(TypeError):
+            rect.to_dictionary(1)
+
+    def test_to_json_string(self):
+        r = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(9, 6, 1, 7)
+        json_dictionary = Base.to_json_string(
+            [r.to_dictionary(), r2.to_dictionary()])
+
+        self.assertEqual(
+            json_dictionary,
+            '[{"id": 6, "width": 10, "height": 7, "x": 2, "y": 8}, {"id": 7, "width": 9, "height": 6, "x": 1, "y": 7}]')
+
+
+if __name__ == '__main__':
+    unittest.main()
