@@ -9,7 +9,8 @@ class Base:
 
     def __init__(self, id=None):
         """initializes an instance of the class"""
-        type(self).__nb_objects += 1
-        self.id = type(self).__nb_objects
         if id is not None:
             self.id = id
+        else:
+            type(self).__nb_objects += 1
+            self.id = type(self).__nb_objects
