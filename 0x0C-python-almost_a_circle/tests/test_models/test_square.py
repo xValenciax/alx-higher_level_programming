@@ -52,6 +52,10 @@ class TestSquare(unittest.TestCase):
         output = self.output_buffer.getvalue()
         self.assertEqual(output, '[Square] (10) 2/2 - 4\n')
 
+        with self.assertRaises((ValueError, TypeError)):
+            square.size = -10
+            square.size = 'size'
+
 
 if __name__ == '__main__':
     unittest.main()
