@@ -110,6 +110,3 @@ class Rectangle(Base):
                 elif key == 'height':
                     self.height = value
                 elif key == 'x':
-                    self.x = value
-                elif key == 'y':
-                    self.y = value
