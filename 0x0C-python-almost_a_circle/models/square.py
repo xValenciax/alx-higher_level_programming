@@ -12,20 +12,32 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """
+        returns the string representation of an obj
+        """
         return '[Square] ({}) {}/{} - {}'.format(
             self.id, self.x, self.y, self.width
         )
 
     @property
     def size(self):
+        """
+        gets the value of size attribute
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """
+        sets the value of size attribute
+        """
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
+        """
+        updates an existing object's attributes
+        """
         if args is not None and len(args) != 0:
             values = [None, None, None, None]
             for i, arg in enumerate(args):
@@ -52,5 +64,8 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
+        """
+        returns the dictionary representation of an obj
+        """
         return {'id': self.id, 'size': self.size,
                 'x': self.x, 'y': self.y}

@@ -16,6 +16,9 @@ class Rectangle(Base):
         self.y = y
 
     def __str__(self):
+        """
+        returns the string representation of an obj
+        """
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(
             self.id, self.x, self.y, self.width, self.height
         )
@@ -60,7 +63,11 @@ class Rectangle(Base):
         """sets the value of y attribute"""
         self.__y = self.validate_attribute('y', value)
 
-    def validate_attribute(self, name, value) -> int:
+    def validate_attribute(self, name, value):
+        """
+        validates the value parameter to be an integer
+        and inside a predefined range
+        """
         if not isinstance(value, int):
             raise TypeError('{} must be an integer'.format(name))
 
@@ -73,9 +80,16 @@ class Rectangle(Base):
         return value
 
     def area(self):
+        """
+        returns the area of the rectangle
+        """
         return self.width * self.height
 
     def display(self):
+        """
+        prints the right rectangle
+        given its width and height
+        """
         for _ in range(self.y):
             print()
         for _ in range(self.height):
@@ -86,6 +100,9 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
+        """
+        updates an existing object's attributes
+        """
         if args is not None and len(args) != 0:
             values = [None, None, None, None, None]
             for i, arg in enumerate(args):
@@ -110,3 +127,14 @@ class Rectangle(Base):
                 elif key == 'height':
                     self.height = value
                 elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
+
+    def to_dictionary(self):
+        """
+        returns the dictionary representation of an obj
+        """
+        return {'id': self.id, 'width': self.width,
+                'height': self.height, 'x': self.x,
+                'y': self.y}
