@@ -7,4 +7,5 @@ SELECT id, name
        	     SELECT id
 	     FROM states
 	     WHERE name='California'
-       );
+       )
+ORDER BY id;
