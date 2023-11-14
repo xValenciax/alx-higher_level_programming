@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 function factorial(n) {
     if (!n || n == 1)
         return 1;

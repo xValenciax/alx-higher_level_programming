@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const args = process.argv;
 
 if (parseInt(args[2])) {
