@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 const args = process.argv.slice(2);
 
 if (!args) { console.log(0); } else {

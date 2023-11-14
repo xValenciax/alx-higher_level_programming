@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 const argsCount = process.argv.length;
 
 if (argsCount > 2) {
