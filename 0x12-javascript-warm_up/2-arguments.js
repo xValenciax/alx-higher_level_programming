@@ -5,4 +5,4 @@ if (args_count > 2) {
 }
 
 else
-    console.log('No found');
+    console.log('No argument');
