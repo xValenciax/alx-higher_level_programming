@@ -5,9 +5,14 @@ size = parseInt(args[0]);
 if (!size)
     console.log('Missing size');
 
+let square = [];
+
 for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
-        process.stdout.write('x');
+        square.push('x');
     }
-    process.stdout.write('\n');
+    square.push('\n');
 }
+
+square.pop();
+console.log(square.join(''));
