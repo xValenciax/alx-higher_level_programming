@@ -1,1 +1,1 @@
-This is python classes task
+This is js warm up task
